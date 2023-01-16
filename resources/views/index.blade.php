@@ -9,7 +9,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('assets') }}/images/favicon.png">
 
     @include('template.assets.default.header')
 
@@ -28,7 +28,7 @@
             </div>
 
         </div>
-        @include('template.pages.rightbar')
+        {{-- @include('template.pages.rightbar') --}}
         <div class="rightbar-overlay"></div>
 
         @include('template.assets.default.footer')
