@@ -11,6 +11,8 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('assets') }}/images/favicon.png">
 
+    @include('template.assets.extra.header')
+    @include('template.assets.table.header')
     @include('template.assets.default.header')
 
     </head>
@@ -32,9 +34,10 @@
         <div class="rightbar-overlay"></div>
 
         @include('template.assets.default.footer')
-
-        <!-- apexcharts -->
+        @include('template.assets.table.footer')
         @include('template.assets.extra.footer')
+
+        @include('template.pages.script')
 
     </body>
 </html>

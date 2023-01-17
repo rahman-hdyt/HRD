@@ -3087,6 +3087,14 @@ textarea.form-control.is-invalid {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
     -webkit-box-shadow 0.15s ease-in-out;
 }
+
+/* tambahan */
+.btn-block{
+    display: block;
+    width: 100%;
+}
+/* end */
+
 @media (prefers-reduced-motion: reduce) {
   .btn {
     -webkit-transition: none;

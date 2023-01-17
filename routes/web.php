@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Master\JabatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,10 @@ use App\Http\Controllers\DashboardController;
 // });
 
 Route::get('/', [DashboardController::class, 'viewDashboard'])->name('dashboard');
+
+Route::prefix('master/')->group(function () {
+    //Jabatan
+    Route::get('jabatan', [JabatanController::class, 'index'])->name('master.jabatan');
+    Route::post('jabatan', [JabatanController::class, 'store'])->name('master.jabatan.store');
+    Route::delete('jabatan/{id}', [JabatanController::class, 'destroy'])->name('master.jabatan.destroy');
+});
