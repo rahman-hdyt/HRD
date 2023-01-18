@@ -37,7 +37,7 @@ class JabatanController extends Controller
         $status = MasterJabatan::updateOrCreate(['jabatan_id' => $id], $input);
 
         if ($status) {
-            return redirect()->route('master.jabatan')->with('success', 'Siswa Berhasil Ditambahkan!');
+            return redirect()->route('master.jabatan')->with('success', 'Jabatan Berhasil Ditambahkan!');
         } else {
             return back()->with('failed', 'Gagal Tambah Data');
         }
@@ -50,6 +50,6 @@ class JabatanController extends Controller
         $data->jabatan_isdelete = 1;
         $data->save();
 
-        return redirect()->route('master.jabatan');
+        return redirect()->route('master.jabatan')->with('success', 'Jabatan Berhasil Dihapus!');
     }
 }

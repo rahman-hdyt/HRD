@@ -1,6 +1,33 @@
 <script>
 
-    $(document).ready(function() {
+// (function ($) {
+//     "use strict"
+
+//     $(".toastr-success-top-right").on("click", function () {
+//         toastr.success("Berhasil", "Top Right", {
+//             timeOut: 3000,
+//             closeButton: !0,
+//             debug: !1,
+//             newestOnTop: !0,
+//             progressBar: !0,
+//             positionClass: "toast-top-right",
+//             preventDuplicates: !0,
+//             onclick: null,
+//             showDuration: "300",
+//             hideDuration: "1000",
+//             extendedTimeOut: "1000",
+//             showEasing: "swing",
+//             hideEasing: "linear",
+//             showMethod: "fadeIn",
+//             hideMethod: "fadeOut",
+//             tapToDismiss: !1
+//         })
+//     }
+
+//     );
+// })(jQuery);
+
+$(document).ready(function() {
         toastr.options.timeOut = 3000;
         toastr.options.closeButton= !0;
         toastr.options.debug= !1;
@@ -21,7 +48,7 @@
         @if (Session::has('error'))
             toastr.error('{{ Session::get('error') }}');
         @elseif(Session::has('success'))
-            toastr.success('{{ Session::get('success') }}');
+            toastr.success('{{ Session::get('success') }}', "Success!");
         @endif
     });
 

@@ -54,7 +54,7 @@
                                                 </button>
 
                                                 <div class="dropdown-menu" style="">
-                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <a class="dropdown-item" href="#edit-jabatan{{$jabatan->jabatan_id}}" data-bs-toggle="modal">Edit</a>
 
                                                     <form action="{{ route('master.jabatan.destroy', $jabatan->jabatan_id) }}" method="POST">
                                                         @csrf
@@ -73,6 +73,7 @@
             </div> <!-- end col -->
         </div> <!-- end row -->
 
+        <!-- tambah -->
         <div id="tambah-jabatan" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -104,6 +105,42 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+
+        <!-- edit -->
+        @foreach ($jabatans as $jabatan)
+        <div class="modal fade" id="edit-jabatan{{ $jabatan->jabatan_id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Tambah Jabatan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <form action="{{ route('master.jabatan.store', $jabatan->jabatan_id ) }}" method="POST">
+                        @csrf
+                        {{-- @method('update') --}}
+                        <div class="modal-body">
+                            <div class="mb-3 row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Jabatan</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="jabatan_nama" value="{{ $jabatan->jabatan_nama }}" type="text" id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Level</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="jabatan_level" value="{{ $jabatan->jabatan_level }}" type="number" id="example-text-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        @endforeach
 
     </div> <!-- container-fluid -->
 </div>

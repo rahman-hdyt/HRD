@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class MasterJabatan extends Model
 {
-    use HasFactory;
-
     protected $table = 'master_jabatan';
     protected $primaryKey = 'jabatan_id';
 
