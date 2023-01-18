@@ -45,8 +45,8 @@
                                 <tbody>
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $jabatan->jabatan_nama }}</td>
-                                        <td>{{ $jabatan->jabatan_level }}</td>
+                                        <td>{{ $jabatan->nama_jabatan }}</td>
+                                        <td>{{ $jabatan->level_jabatan }}</td>
                                         <td>
                                             <div class="dropdown text-center">
                                                 <button href="#" class="btn btn-sm btn-block btn-secondary dropdown-toggle waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,9 +54,9 @@
                                                 </button>
 
                                                 <div class="dropdown-menu" style="">
-                                                    <a class="dropdown-item" href="#edit-jabatan{{$jabatan->jabatan_id}}" data-bs-toggle="modal">Edit</a>
+                                                    <a class="dropdown-item" href="#edit-jabatan{{$jabatan->id_jabatan}}" data-bs-toggle="modal">Edit</a>
 
-                                                    <form action="{{ route('master.jabatan.destroy', $jabatan->jabatan_id) }}" method="POST">
+                                                    <form action="{{ route('master.jabatan.destroy', $jabatan->id_jabatan) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="dropdown-item sa-warning">Hapus</button>
@@ -88,13 +88,13 @@
                             <div class="mb-3 row">
                                 <label for="example-text-input" class="col-md-2 col-form-label">Jabatan</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" name="jabatan_nama" type="text" id="example-text-input">
+                                    <input class="form-control" name="nama_jabatan" type="text" id="example-text-input">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="example-text-input" class="col-md-2 col-form-label">Level</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" name="jabatan_level" type="number" id="example-text-input">
+                                    <input class="form-control" name="level_jabatan" type="number" id="example-text-input">
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
 
         <!-- edit -->
         @foreach ($jabatans as $jabatan)
-        <div class="modal fade" id="edit-jabatan{{ $jabatan->jabatan_id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="edit-jabatan{{ $jabatan->id_jabatan }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -116,20 +116,20 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
-                    <form action="{{ route('master.jabatan.store', $jabatan->jabatan_id ) }}" method="POST">
+                    <form action="{{ route('master.jabatan.store', $jabatan->id_jabatan ) }}" method="POST">
                         @csrf
                         {{-- @method('update') --}}
                         <div class="modal-body">
                             <div class="mb-3 row">
                                 <label for="example-text-input" class="col-md-2 col-form-label">Jabatan</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" name="jabatan_nama" value="{{ $jabatan->jabatan_nama }}" type="text" id="example-text-input">
+                                    <input class="form-control" name="nama_jabatan" value="{{ $jabatan->nama_jabatan }}" type="text" id="example-text-input">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="example-text-input" class="col-md-2 col-form-label">Level</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" name="jabatan_level" value="{{ $jabatan->jabatan_level }}" type="number" id="example-text-input">
+                                    <input class="form-control" name="level_jabatan" value="{{ $jabatan->level_jabatan }}" type="number" id="example-text-input">
                                 </div>
                             </div>
                         </div>

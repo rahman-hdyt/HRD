@@ -26,15 +26,15 @@ class JabatanController extends Controller
     public function store(Request $request, $id = null)
     {
         $rules = [
-            'jabatan_nama' => 'required',
-            'jabatan_level' => 'required'
+            'nama_jabatan' => 'required',
+            'level_jabatan' => 'required'
         ];
 
         $this->validate($request, $rules);
 
         $input = $request->all();
 
-        $status = MasterJabatan::updateOrCreate(['jabatan_id' => $id], $input);
+        $status = MasterJabatan::updateOrCreate(['id_jabatan' => $id], $input);
 
         if ($status) {
             return redirect()->route('master.jabatan')->with('success', 'Jabatan Berhasil Ditambahkan!');

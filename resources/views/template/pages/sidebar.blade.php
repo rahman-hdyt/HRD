@@ -53,8 +53,8 @@
                                 <span>Jabatan</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="calendar.html" class="waves-effect">
+                        <li class="{{ Request::is('master-dimensi') ? 'active' : '' }}">
+                            <a href="{{ route('master.dimensi') }}" class="waves-effect">
                                 <span>Dimensi KPI</span>
                             </a>
                         </li>

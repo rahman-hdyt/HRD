@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class MasterJabatan extends Model
 {
     protected $table = 'master_jabatan';
-    protected $primaryKey = 'jabatan_id';
+    protected $primaryKey = 'id_jabatan';
 
     protected $fillable = [
-        'jabatan_nama',
-        'jabatan_level',
+        'nama_jabatan',
+        'level_jabatan',
         'jabatan_isdelete'
     ];
 
